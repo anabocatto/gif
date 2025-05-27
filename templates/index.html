@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>GIFShare - WhatsApp Style</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      <img src="/image/bialinda.jpg" alt="Foto de perfil">
+      <div>
+        <h2>Amigo(a)</h2>
+        <p>online</p>
+      </div>
+    </div>
+
+    <div class="chat-box">
+      <div class="message received">
+        Oi! Me manda um GIF engraçado? 😂
+      </div>
+
+      {% for gif in gifs %}
+      <div class="message sent">
+        <img src="{{ gif }}" alt="GIF enviado">
+        <a href="https://wa.me/?text={{ gif }}" target="_blank">📤 Enviar pelo WhatsApp</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <form method="POST" class="chat-input">
+      <input name="termo" type="text" placeholder="Buscar GIFs (ex: gato, dança, meme...)" required>
+      <button type="submit">🔍</button>
+    </form>
+  </div>
+</body>
+</html>
